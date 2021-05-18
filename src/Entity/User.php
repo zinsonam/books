@@ -48,7 +48,7 @@ class User
     private $telephone;
 
     /**
-     * @ORM\Column(type="decimal", precision=2, scale=2)
+     * @ORM\Column(type="integer")
      */
     private $score;
 
