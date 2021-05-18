@@ -12,7 +12,11 @@
         "doctrine/doctrine-bundle": "^2.3",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.8",
+<<<<<<< HEAD
         "fzaninotto/faker": "^1.9",
+=======
+        "fakerphp/faker": "^1.14",
+>>>>>>> 61a1bbdd258895c4a5150160066d32d859514dfb
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",

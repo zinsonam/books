@@ -52,6 +52,11 @@ class Book
      */
     private $category;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="books", cascade={"persist"})
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
