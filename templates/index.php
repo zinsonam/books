@@ -1,1 +1,1 @@
-je suis sur ma branche check out to
+je suis sur ma branche checkout to
