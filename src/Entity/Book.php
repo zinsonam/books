@@ -38,7 +38,7 @@ class Book
     private $type;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $quantite;
 
@@ -46,6 +46,11 @@ class Book
      * @ORM\Column(type="float")
      */
     private $prix;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="books", cascade={"persist"})
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -105,7 +110,7 @@ class Book
         return $this->quantite;
     }
 
-    public function setQuantite(?int $quantite): self
+    public function setQuantite(int $quantite): self
     {
         $this->quantite = $quantite;
 
@@ -120,6 +125,18 @@ class Book
     public function setPrix(float $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
