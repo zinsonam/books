@@ -45,15 +45,15 @@ class UserController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/about-us/{id}", name="user_show", methods={"GET"})
-    //  */
-    // public function show(User $user): Response
-    // {
-    //     return $this->render('user/show.html.twig', [
-    //         'user' => $user,
-    //     ]);
-    // }
+    /**
+     * @Route("/about-us/{id}", name="user_show", methods={"GET"})
+     */
+    public function show(User $user): Response
+    {
+        return $this->render('user/show.html.twig', [
+            'user' => $user,
+        ]);
+    }
 
     /**
      * @Route("/admin/subscribers/edit/{id}", name="user_edit", methods={"GET","POST"})
