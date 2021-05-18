@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
