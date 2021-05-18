@@ -13,18 +13,18 @@ class BookFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create('fr_FR');
-        
+        for ($j=1; $j<=5 ; $j++){
         $cat = new Category();
-        $cat->setName('Autre');
-
+        $cat->setName($faker->company());
+        
         for ($i=1; $i<=5 ; $i++){
             $book = new Book();
 
             $book->setCategory($cat);
-
-            $book->setAuteur($faker->word());
+            $auteur = $faker->firstNameFemale()." ".$faker->lastName();
+            $book->setAuteur($auteur);
             $book->setGenre($faker->word());
-            $book->setTitre($faker->word());
+            $book->setTitre($faker->sentence($nbWords = 6, $variableNbWords = true));
             $book->setType($faker->word());
             $book->setPrix($faker->randomFloat(2, 2, 100));
             $book->setQuantite(mt_rand(1, 10));
@@ -32,7 +32,7 @@ class BookFixtures extends Fixture
             $manager->persist($book);
 
         }
-
+    }
         $manager->flush();
     }
 }
