@@ -46,7 +46,7 @@ class Book
      * @ORM\Column(type="float")
      */
     private $prix;
-
+//ajouter cascade={"persist"} pour le problem de liaison enter categorie et book
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="books", cascade={"persist"})
      */
