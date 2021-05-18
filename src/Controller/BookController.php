@@ -10,11 +10,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/book")
- */
 class BookController extends AbstractController
 {
+
+    /**
+    * @Route("/books", name="books_list_public")
+    */
+    public function listBooksPublic(BookRepository $bookRepo): Response
+    {
+        return $this->render('pages/books.html.twig', [
+            'books' => $bookRepo->findAll()
+        ]);
+    }
+
+
     /**
      * @Route("/admin/books", name="book_index", methods={"GET"})
      */
