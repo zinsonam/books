@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/", name="book_index", methods={"GET"})
+     * @Route("/admin/books", name="book_index", methods={"GET"})
      */
     public function index(BookRepository $bookRepository): Response
     {
@@ -26,7 +26,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="book_new", methods={"GET","POST"})
+     * @Route("/admin/books/create", name="book_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -48,18 +48,18 @@ class BookController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="book_show", methods={"GET"})
-     */
-    public function show(Book $book): Response
-    {
-        return $this->render('book/show.html.twig', [
-            'book' => $book,
-        ]);
-    }
+    // /**
+    //  * @Route("/{id}", name="book_show", methods={"GET"})
+    //  */
+    // public function show(Book $book): Response
+    // {
+    //     return $this->render('book/show.html.twig', [
+    //         'book' => $book,
+    //     ]);
+    // }
 
     /**
-     * @Route("/{id}/edit", name="book_edit", methods={"GET","POST"})
+     * @Route("/admin/books/edit/{id}", name="book_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Book $book): Response
     {
@@ -79,7 +79,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="book_delete", methods={"POST"})
+     * @Route("/admin/books/delete/{id}", name="book_delete", methods={"POST"})
      */
     public function delete(Request $request, Book $book): Response
     {
