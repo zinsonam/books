@@ -1,13 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Formulaire utilisateur
+{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+	<h1>Formulaire utilisateur</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('user_index') }}">back to list</a>
+	{{ form_start(form) }}
 
-    {{ include('user/_delete_form.html.twig') }}
+	<div class="field">
+		<label class="label">Label</label>
+		<div class="control">
+			<input id="user_nom" class="input" name="user[nom]" type="text" placeholder="Text input">
+		</div>
+	</div>
+
+
+	<button class="btn">{{ button_label|default('Save') }}</button>
+
+	{{ form_end(form) }}
+
+
+	{# {{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }} #}
+
+	<a href="{{ path('user_index') }}">back to list</a>
+
+	{{ include('user/_delete_form.html.twig') }}
 {% endblock %}
