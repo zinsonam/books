@@ -57,15 +57,15 @@ class BookController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/{id}", name="book_show", methods={"GET"})
-    //  */
-    // public function show(Book $book): Response
-    // {
-    //     return $this->render('book/show.html.twig', [
-    //         'book' => $book,
-    //     ]);
-    // }
+    /**
+     * @Route("/admin/books/{id}", name="book_show", methods={"GET"})
+     */
+    public function show(Book $book): Response
+    {
+        return $this->render('book/show.html.twig', [
+            'book' => $book,
+        ]);
+    }
 
     /**
      * @Route("/admin/books/edit/{id}", name="book_edit", methods={"GET","POST"})
