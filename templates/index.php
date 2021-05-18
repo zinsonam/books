@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,4 @@
     
 </body>
 </html>
-=======
-je suis sur ma branche check out to
->>>>>>> 75374b4 (mon premier commit)
+
