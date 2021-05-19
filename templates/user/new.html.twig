@@ -3,9 +3,19 @@
 {% block title %}New User{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
+    <h1 class="title is-1 has-text-centered m-5">Créer un Abonné</h1>
 
-    {{ include('user/_form.html.twig') }}
+    <div class="" style="width: 60%; margin-right: auto; margin-left: auto; margin-bottom: 4em;">
+        {{ include('user/_form.html.twig', {'button_label': 'Créer l\'abonné'}) }}
 
-    <a href="{{ path('user_index') }}">back to list</a>
+        <br><br>
+
+        <div class="field is-grouped is-grouped-centered">
+            <p class="control">
+                <a class="button is-primary" href="{{ path('user_index') }}">Back to list</a>
+            </p>
+        </div>
+
+    </div>
+
 {% endblock %}
