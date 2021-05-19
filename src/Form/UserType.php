@@ -15,12 +15,11 @@ class UserType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email')
-            ->add('mot_de_passe')
+            ->add('password')
             ->add('adresse')
             ->add('telephone')
             ->add('score')
             ->add('dateCreation')
-            ->add('isAdmin')
         ;
     }
 

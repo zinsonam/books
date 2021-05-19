@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion
+{% endblock %}
+
+{% block body %}
+	<h1 class="title is-1 has-text-centered m-4">connexion</h1>
+
+	<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+
+		<form action="#" method="POST">
+
+			<label for="inputEmail">Email</label>
+			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="toto@exemple.com" required autofocus>
+			<label for="inputPassword">Password</label>
+			<input type="password" name="password" id="inputPassword" class="form-control" placeholder="votre mot de passe confidentiel" required>
+			<br>
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<button class="btn btn-lg btn-primary" type="submit">
+				Connexion
+			</button>
+		</form>
+	</div>
+
+{% endblock %}
