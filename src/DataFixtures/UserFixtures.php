@@ -23,12 +23,12 @@ class UserFixtures extends Fixture
         $admin->setNom("Martin")
         ->setPrenom("Luc")
 
-        ->setMotDePasse("1234abcd")
+        ->setPassword('$2y$13$hRrss14obgPmuQz3wudoOuDJzpSZ6Y/cMNWot48tK737KdUIDxCKu')
         ->setAdresse("255 rue des toutou, 77410 Roissy")
         ->setTelephone("06 33 22 11 55")
         ->setDateCreation(new \DateTime())
         ->setScore(10)
-        ->setIsAdmin(1)
+        ->setRoles(['ROLE_ADMIN', 'ROLE_USER'])
         ->setEmail("luc.martin@gmail.com");
 
         $manager->persist($admin);
@@ -39,14 +39,14 @@ class UserFixtures extends Fixture
             $user->setNom($faker->lastName())
             ->setPrenom($faker->firstName())
 
-            ->setMotDePasse("123abc")
+            ->setPassword('$2y$13$hRrss14obgPmuQz3wudoOuDJzpSZ6Y/cMNWot48tK737KdUIDxCKu')
             ->setAdresse($faker->address())
             ->setTelephone($faker->e164PhoneNumber())
             ->setDateCreation(new \DateTime())
-            ->setScore(10)
-            ->setIsAdmin(0);
+            ->setRoles(['ROLE_USER'])
+            ->setScore(10);
             // info dans $user ou faker
-            $email =  $user->getNom().$user->getPrenom()."@".$faker->freeEmailDomain();
+            $email =  strtolower($user->getNom()) . '.' . strtolower($user->getPrenom()) . "@" . $faker->freeEmailDomain();
             $user->setEmail($email);
 
             $manager->persist($user);
@@ -55,4 +55,5 @@ class UserFixtures extends Fixture
 
         $manager->flush();
     }
+
 }
