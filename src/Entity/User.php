@@ -34,6 +34,8 @@ class User implements UserInterface
      */
     private $password;
 
+    private $confirm;
+
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -121,6 +123,19 @@ class User implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+
+    public function getConfirm(): string
+    {
+        return $this->confirm;
+    }
+    
+    public function setConfirm(string $confirm): self
+    {
+        $this->confirm = $confirm;
 
         return $this;
     }
