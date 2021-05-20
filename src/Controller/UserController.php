@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
@@ -33,6 +34,13 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            
+            // ATTENTION
+            // Encoder les mots de passe
+            // avant de les enregister dans la base
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -46,7 +54,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/about-us/{id}", name="user_show", methods={"GET"})
+     * @Route("/admin/subscribers/show/{id}", name="user_show", methods={"GET"})
      */
     public function show(User $user): Response
     {
@@ -58,12 +66,15 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/subscribers/edit/{id}", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $hash = $encoder->encodePassword($user, $user->getPassword());
+            $user->setPassword($hash);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_index');
