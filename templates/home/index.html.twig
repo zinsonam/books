@@ -1,12 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}AlphaBooks - Accueil{% endblock %}
 
 {% block body %}
     <img class="bg-image" src="images/bg.jpg" alt="background">
 
     <main class="home">
-        <h1 class="title is-1 has-text-centered m-4 has-text-white main-title">Bibliothèque AlphaBooks</h1>
+        <h1 class="ml5 title is-1 has-text-centered m-4 has-text-white main-title">
+            <span class="text-wrapper">
+                <span class="line line1"></span>
+                <span class="letters letters-left">Bibliothèque</span>
+                <span class="letters ampersand"></span>
+                <span class="letters letters-right">AlphaBooks</span>
+                <span class="line line2"></span>
+            </span>
+        </h1>
+        <br>
+        <h2 class="ml10 has-text-white">
+            <span class="text-wrapper">
+                <span class="letters">La culture, accessible à tous !</span>
+            </span>
+        </h2>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+        anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: '.ml5 .line',
+                opacity: [0.5,1],
+                scaleX: [0, 1],
+                easing: "easeInOutExpo",
+                duration: 700
+            }).add({
+            targets: '.ml5 .line',
+            duration: 600,
+            easing: "easeOutExpo",
+            translateY: (el, i) => (-0.625 + 0.625*2*i) + "em"
+        }).add({
+            targets: '.ml5 .ampersand',
+            opacity: [0,1],
+            scaleY: [0.5, 1],
+            easing: "easeOutExpo",
+            duration: 600,
+            offset: '-=600'
+        }).add({
+            targets: '.ml5 .letters-left',
+            opacity: [0,1],
+            translateX: ["0.5em", 0],
+            easing: "easeOutExpo",
+            duration: 600,
+            offset: '-=300'
+        }).add({
+                targets: '.ml5 .letters-right',
+                opacity: [0,1],
+                translateX: ["-0.5em", 0],
+                easing: "easeOutExpo",
+                duration: 600,
+                offset: '-=600'
+            });
+
+
+
+        const textWrapper = document.querySelector('.ml10 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({
+            loop: false
+        })
+            .add({
+                targets: '.ml10 .letter',
+                rotateY: [-90, 0],
+                duration: 1300,
+                delay: (el, i) => 2000 + (25 * i)
+            });
+    </script>
 
 {% endblock %}
