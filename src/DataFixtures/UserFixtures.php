@@ -18,23 +18,9 @@ class UserFixtures extends Fixture
         // composer require fakerphp/faker
         // ***************************************************
 
-        //Creation user admin
-        $admin = new User();
-        $admin->setNom("Martin")
-        ->setPrenom("Luc")
-
-        ->setPassword('$2y$13$hRrss14obgPmuQz3wudoOuDJzpSZ6Y/cMNWot48tK737KdUIDxCKu')
-        ->setAdresse("255 rue des toutou, 77410 Roissy")
-        ->setTelephone("06 33 22 11 55")
-        ->setDateCreation(new \DateTime())
-        ->setScore(10)
-        ->setRoles(['ROLE_ADMIN', 'ROLE_USER'])
-        ->setEmail("luc.martin@gmail.com");
-
-        $manager->persist($admin);
 
         //Creation autre users utilisateur
-        for($i=1;$i<=10; $i++){
+        for($i=1;$i<=2; $i++){
             $user = new User();
             $user->setNom($faker->lastName())
             ->setPrenom($faker->firstName())

@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voici vos livres empruntés{% endblock %}
+{% block title %}AlphaBooks - Livres empruntés{% endblock %}
 
 {% block body %}
+
+    <style>
+        html{
+            overflow-y: auto;
+        }
+    </style>
 
     <h1 style="text-align:center"  class="title m-6">Listes des Emprunts</h1>
     <div class="table-container">
