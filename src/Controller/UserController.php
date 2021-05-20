@@ -39,7 +39,7 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/subscribers/create", name="user_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $encoder ): Response
     {
         try{
             if(!$this->getUser()) throw new AccessDeniedException();
