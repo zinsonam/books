@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voici vos livres empruntés{% endblock %}
+
+{% block body %}
+
+    <h1>Listes des Emprunts</h1>
+    <table>
+        <thead>
+            <tr>
+                <th> ID Utilisateur </th>
+                <th> Titre Livre </th>
+                <th> Auteur Livre </th>
+                <th colspan="2" > Date Emrunté </th>
+                <th> Date Rendu </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emprunt in emprunts %}
+                <tr>
+
+                    <td>
+                        {{ emprunt.user_id}}
+                    </td>
+                    <td>
+                        {{ emprunt.book.titre}}
+                    </td>
+                    <td>
+                        {{ emprunt.book.auteur}}
+                    </td>
+                    <td colspan="2"> 
+                        {{ emprunt.date_emprunt | date('d/m/Y à H:i')}}
+                    </td>
+                    <td>
+                        {{ emprunt.date_rendu}}
+                    </td>
+                </tr>
+    		{% else %}
+				<tr>
+					<td colspan="11">Aucun livre</td>
+				</tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
