@@ -4,36 +4,37 @@
 
 {% block body %}
 
-    <h1 style="text-align:center" class="title">Listes des Emprunts</h1>
+    <h1 style="text-align:center"  class="title m-6">Listes des Emprunts</h1>
     <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style=" width: 80%; margin-left: auto; margin-right: auto;" >
             <thead >
-                <tr >
-                    <th class="has-text-white-ter has-background-dark"> ID Utilisateur </th>
-                    <th class="has-text-white-ter has-background-dark"> Titre Livre </th>
-                    <th class="has-text-white-ter has-background-dark"> Auteur Livre </th>
-                    <th  colspan="2"  class="has-text-white-ter has-background-dark" > Date Emrunté </th>
-                    <th class="has-text-white-ter has-background-dark"> Date Rendu </th>
+                <tr>
+                    <th class="has-text-white-ter has-background-primary"> Titre </th>
+                    <th class="has-text-white-ter has-background-primary"> Auteur </th>
+                    <th  colspan="2"  class="has-text-white-ter has-background-primary" > Date Emprunté </th>
+                    <th class="has-text-white-ter has-background-primary"> Date Rendu </th>
                 </tr>
             </thead>
             <tbody >
                 {% for emprunt in emprunts %}
                     <tr >
 
-                        <td class="has-text-grey-lighter has-background-primary-dark">
-                            {{ emprunt.user_id}}
-                        </td>
-                        <td class="has-text-white has-background-info-dark ">
+
+                        <td >
                             {{ emprunt.book.titre}}
                         </td>
-                        <td class="has-text-white has-background-info-dark ">
+                        <td >
                             {{ emprunt.book.auteur}}
                         </td>
-                        <td class="has-text-white has-background-info-dark " colspan="2"> 
+                        <td colspan="2"> 
                             {{ emprunt.date_emprunt | date('d/m/Y à H:i')}}
                         </td>
-                        <td class="has-text-white has-background-info-dark ">
-                            {{ emprunt.date_rendu}}
+                        <td >
+                            {% if  emprunt.date_rendu != -1 %}
+                                <strong>Rendu</strong>
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="red"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                            {% endif %}
                         </td>
                     </tr>
                 {% else %}
