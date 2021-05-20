@@ -24,7 +24,7 @@
             {% if app.user and is_granted('ROLE_ADMIN') %}
 
                 <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
+                    <a class="navbar-link" href="{{ path('admin_home') }}">
                         Administration
                     </a>
 

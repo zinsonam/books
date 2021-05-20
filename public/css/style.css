@@ -195,5 +195,119 @@ main.home{
     background: transparent !important;
 }
 
+/*=======================================
+*   Admin Page "Rendre un livre" button
+=======================================*/
+
+
+.buttonHub {
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:34px;
+	border:11px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Impact;
+	font-size:28px;
+	font-style:italic;
+	padding:32px 76px;
+	text-decoration:none;
+	text-shadow:-2px 0px 3px #5b8a3c;
+}
+.buttonHub:hover {
+	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+	background-color:#72b352;
+}
+.buttonHub:active {
+	position:relative;
+	top:1px;
+}
+
+
+/*=======================================
+*   Admin Page "Créer un abonné" button
+=======================================*/
+
+.buttonHub2 {
+	background-color:#7892c2;
+	border-radius:32px;
+	border:12px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Impact;
+	font-size:28px;
+	font-style:italic;
+	padding:32px 76px;
+	text-decoration:none;
+	text-shadow:-2px 0px 4px #283966;
+}
+.buttonHub2:hover {
+	background-color:#476e9e;
+}
+.buttonHub2:active {
+	position:relative;
+	top:1px;
+}
+
+
+/*=======================================
+*   Admin Page "Créer un emprunt" button
+=======================================*/
+
+.buttonHub3 {
+	background-color:#7892c2;
+	border-radius:32px;
+	border:12px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Impact;
+	font-size:28px;
+	font-style:italic;
+	padding:32px 76px;
+	text-decoration:none;
+	text-shadow:-2px 0px 4px #283966;
+}
+.buttonHub3:hover {
+	background-color:#476e9e;
+}
+.buttonHub3:active {
+	position:relative;
+	top:1px;
+}
+
+
+/*=======================================
+*   Admin Page "sans titre 1" button
+=======================================*/
+
+
+.littleHubButton {
+	box-shadow: -4px 9px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:10px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:20px 40px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.littleHubButton:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.littleHubButton:active {
+	position:relative;
+	top:1px;
+}
+
+
 
 
