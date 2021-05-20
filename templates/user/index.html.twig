@@ -12,11 +12,11 @@
 				<th>Nom</th>
 				<th>Prenom</th>
 				<th>Email</th>
-				<th>Password</th>
 				<th>Adresse</th>
 				<th>Telephone</th>
 				<th>Score</th>
 				<th>DateCreation</th>
+				<th>Liste des Emprunts</th>
 				<th>actions</th>
 			</tr>
 		</thead>
@@ -27,11 +27,13 @@
 					<td>{{ user.nom }}</td>
 					<td>{{ user.prenom }}</td>
 					<td>{{ user.email }}</td>
-					<td>{{ user.password }}</td>
 					<td>{{ user.adresse }}</td>
 					<td>{{ user.telephone }}</td>
 					<td>{{ user.score }}</td>
 					<td>{{ user.dateCreation ? user.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						<a href="{{ path('emprunts_listuser', {'id': user.id}) }}" class="tag is-link">Emprunts</a>
+					</td>
 					<td>
 						<a href="{{ path('user_show', {'id': user.id}) }}">show</a>
 						<a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
