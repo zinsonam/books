@@ -4,42 +4,44 @@
 
 {% block body %}
 
-    <h1>Listes des Emprunts</h1>
-    <table>
-        <thead>
-            <tr>
-                <th> ID Utilisateur </th>
-                <th> Titre Livre </th>
-                <th> Auteur Livre </th>
-                <th colspan="2" > Date Emrunté </th>
-                <th> Date Rendu </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for emprunt in emprunts %}
-                <tr>
-
-                    <td>
-                        {{ emprunt.user_id}}
-                    </td>
-                    <td>
-                        {{ emprunt.book.titre}}
-                    </td>
-                    <td>
-                        {{ emprunt.book.auteur}}
-                    </td>
-                    <td colspan="2"> 
-                        {{ emprunt.date_emprunt | date('d/m/Y à H:i')}}
-                    </td>
-                    <td>
-                        {{ emprunt.date_rendu}}
-                    </td>
+    <h1 style="text-align:center" class="title">Listes des Emprunts</h1>
+    <div class="table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead >
+                <tr >
+                    <th class="has-text-white-ter has-background-dark"> ID Utilisateur </th>
+                    <th class="has-text-white-ter has-background-dark"> Titre Livre </th>
+                    <th class="has-text-white-ter has-background-dark"> Auteur Livre </th>
+                    <th  colspan="2"  class="has-text-white-ter has-background-dark" > Date Emrunté </th>
+                    <th class="has-text-white-ter has-background-dark"> Date Rendu </th>
                 </tr>
-    		{% else %}
-				<tr>
-					<td colspan="11">Aucun livre</td>
-				</tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody >
+                {% for emprunt in emprunts %}
+                    <tr >
+
+                        <td class="has-text-grey-lighter has-background-primary-dark">
+                            {{ emprunt.user_id}}
+                        </td>
+                        <td class="has-text-white has-background-info-dark ">
+                            {{ emprunt.book.titre}}
+                        </td>
+                        <td class="has-text-white has-background-info-dark ">
+                            {{ emprunt.book.auteur}}
+                        </td>
+                        <td class="has-text-white has-background-info-dark " colspan="2"> 
+                            {{ emprunt.date_emprunt | date('d/m/Y à H:i')}}
+                        </td>
+                        <td class="has-text-white has-background-info-dark ">
+                            {{ emprunt.date_rendu}}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="11">Aucun livre</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
