@@ -17,7 +17,7 @@ class EmpruntController extends AbstractController
     * @Route("/compte/emprunt", name="emprunt_user", methods={"GET"})
     */
     public function getEmprunt(EmpruntRepository $empruntRepo, BookRepository $bookRepo){
-        $user = $this->getUser();
+        $user = $this->getUser(); //recupere user connecté
         //$idUser= htmlspecialchars($req->get('user_id'));
         //  to get the id of the user, instead if session with request we user user entity direct and it recognises the id of the user
         // and then the follwing code can be used to link with the books borrowed. 
