@@ -13,8 +13,12 @@
 }
 
 
+html{
+    overflow-y: auto;
+}
 body{
     min-height: 100vh;
+    background: #aaa;
 
     position: relative;
 }
@@ -192,120 +196,77 @@ main.home{
 *       Overrides
 =======================================*/
 .is-transparent{
-    background: transparent !important;
+    background: rgba(0,0,0,0.65) !important;
 }
+
+
 
 /*=======================================
 *   Admin Page "Rendre un livre" button
 =======================================*/
 
-
 .buttonHub {
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:34px;
-	border:11px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Impact;
-	font-size:28px;
-	font-style:italic;
-	padding:32px 76px;
-	text-decoration:none;
-	text-shadow:-2px 0px 3px #5b8a3c;
+	background: #3b82f6;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30vh;
+    width: 40vw;
+
+	cursor: pointer;
+
+	color: #ffffff;
+
+	font-size: 28px;
+
+    transition: background 0.3s var(--cubic);
 }
-.buttonHub:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
-}
-.buttonHub:active {
-	position:relative;
-	top:1px;
+.buttonHub:hover,
+.buttonHub:active{
+    background: #2563eb;
+    color: #ffffff;
 }
 
 
-/*=======================================
-*   Admin Page "Créer un abonné" button
-=======================================*/
-
-.buttonHub2 {
-	background-color:#7892c2;
-	border-radius:32px;
-	border:12px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Impact;
-	font-size:28px;
-	font-style:italic;
-	padding:32px 76px;
-	text-decoration:none;
-	text-shadow:-2px 0px 4px #283966;
-}
-.buttonHub2:hover {
-	background-color:#476e9e;
-}
-.buttonHub2:active {
-	position:relative;
-	top:1px;
-}
-
-
-/*=======================================
-*   Admin Page "Créer un emprunt" button
-=======================================*/
-
-.buttonHub3 {
-	background-color:#7892c2;
-	border-radius:32px;
-	border:12px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Impact;
-	font-size:28px;
-	font-style:italic;
-	padding:32px 76px;
-	text-decoration:none;
-	text-shadow:-2px 0px 4px #283966;
-}
-.buttonHub3:hover {
-	background-color:#476e9e;
-}
-.buttonHub3:active {
-	position:relative;
-	top:1px;
-}
-
-
-/*=======================================
-*   Admin Page "sans titre 1" button
-=======================================*/
 
 
 .littleHubButton {
-	box-shadow: -4px 9px 14px -7px #276873;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
-	border-radius:10px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:20px 40px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
+    background: #3b82f6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 12vh;
+    width: 25%;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    transition: background 0.3s var(--cubic);
 }
-.littleHubButton:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
+.littleHubButton:hover,
+.littleHubButton:active{
+    background: #2563eb;
+    color: #ffffff;
 }
-.littleHubButton:active {
-	position:relative;
-	top:1px;
+
+
+
+
+/*Footer*/
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 2;
+    padding: 3rem 1.5rem 4rem !important;
 }
 
 

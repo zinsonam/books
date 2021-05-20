@@ -60,7 +60,8 @@ class EmpruntsController extends AbstractController
         }
 
         return $this->render('emprunts/list.html.twig', [
-            'emprunts' => $emprunts
+            'emprunts' => $emprunts,
+            'username' => $user->getFullname()
         ]);
 
     }

@@ -1,13 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voici vos livres empruntés
-{% endblock %}
+{% block title %}AlphaBooks - Liste des Emprunts{% endblock %}
 
 {% block body %}
+	<style>
+		footer{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
 
-	<h1 style="text-align:center" class="title m-6">Listes des Emprunts</h1>
+			z-index: 2;
+			padding: 3rem 1.5rem 4rem !important;
+		}
+	</style>
+
+	<h1 style="text-align: center;" class="title mt-6 mb-2">Listes des Emprunts</h1>
+	<p style="text-align: center;" class="mb-6">Emprunts pour <strong>{{ username }}</strong></p>
 	<div class="table-container">
-		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style=" width: 90%; margin-left: auto; margin-right: auto;">
 			<thead>
 				<tr>
 					<th class="has-text-white-ter has-background-dark">
@@ -57,7 +68,7 @@
 						</td>
 						<td class="has-text-white has-background-info-dark ">
 							{% if (emprunt.date_rendu == '') or (emprunt.date_rendu == '-1') %}
-								<a class="button is-danger" href="{{ path('emprunts_returnBook', {'id': emprunt.user_id, 'emprunt_id': emprunt.id}) }}">Rendre</a>
+								<a class="button is-danger" href="{{ path('emprunts_returnBook', {'id': emprunt.user_id, 'emprunt_id': emprunt.id}) }}">Rendre Livre</a>
 							{% endif %}
 						</td>
 					</tr>

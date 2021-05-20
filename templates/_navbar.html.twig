@@ -21,36 +21,19 @@
                 Livres
             </a>
 
-            {% if app.user and is_granted('ROLE_ADMIN') %}
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link" href="{{ path('admin_home') }}">
-                        Administration
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{ path('user_index') }}">
-                            Liste Abonnés
-                        </a>
-                        <a class="navbar-item" href="{{ path('user_new') }}">
-                            Créer un Abonné
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item" href="{{ path('category_index') }}">
-                            Liste Catégories
-                        </a>
-                        <a class="navbar-item" href="{{ path('book_index') }}">
-                            Liste Livres
-                        </a>
-                    </div>
-                </div>
-
-            {% endif %}
-
-
             <a class="navbar-item" href="{{ path('intro') }}">
                 A propos
             </a>
+
+
+            {% if app.user and is_granted('ROLE_ADMIN') %}
+
+                <a class="navbar-item" href="{{ path('admin_home') }}">
+                    Administration
+                </a>
+
+            {% endif %}
+
         </div>
 
         <div class="navbar-end">
@@ -76,11 +59,11 @@
                             </div>
                             <div class="dropdown-menu" id="dropdown-menu" role="menu">
                                 <div class="dropdown-content">
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{ path('password_edit') }}" class="dropdown-item">
                                         Modifier son mot de passe
                                     </a>
                                     <hr class="dropdown-divider">
-                                    <a href="" class="dropdown-item">
+                                    <a href="{{ path('emprunt_user') }}" class="dropdown-item">
                                         Voir ses emprunts
                                     </a>
                                 </div>

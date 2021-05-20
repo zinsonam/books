@@ -8,12 +8,12 @@
 
     <h1 class="title is-1 has-text-centered m-6 el-fadeDown" style="position: relative; z-index: 2; color: #fff;">Liste des Livres</h1>
 
-    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+    <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; padding-bottom: 20vh;">
         {% for book in books %}
             <div class="card card-appear" style="width: 15%; min-width: 200px; margin: 2em;">
                 <div class="card-image">
                     <figure class="image is-3by4">
-                        <img class="card-image-image" src="images/book.jpg" alt="Placeholder image">
+                        <img class="card-image-image" src="images/livres/{{ book.image }}.jpg" alt="Placeholder image">
                     </figure>
                 </div>
                 <div class="card-content">
@@ -35,8 +35,8 @@
                     </div>
 
                     <div class="card-footer" style="margin-top: 8px;">
-                        <span class="tag is-primary card-footer-item">{{ book.genre }}</span>
-                        <span class="tag is-link card-footer-item">{{ book.type }}</span>
+                        <span class="tag is-link card-footer-item">{{ book.category.name }}</span>
+                        <span class="tag is-primary card-footer-item">{{ book.type }}</span>
                     </div>
                 </div>
             </div>
@@ -44,17 +44,9 @@
     </div>
 
     <script>
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
-
         const cards = document.querySelectorAll('.card-appear');
 
         cards.forEach((card, index) => {
-            const rand = getRandomInt(14) + 1;
-            card.querySelector('.card-image-image').src = `images/livres/${rand}.jpg`;
-
-
             setTimeout(() => {
                 card.classList.add('el-fadeDown');
             }, 200 + (index * 200));
