@@ -116,7 +116,8 @@ class UserController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->render('congratulation/congratulation.html.twig');
+            // return $this->redirectToRoute('/');
         }
 
         return $this->render('security/editPassword.html.twig', [
