@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\BookRepository;
 use App\Repository\UserRepository;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -145,4 +146,6 @@ class UserController extends AbstractController
             return $this->redirectToRoute('home');
         }
     }
+
+
 }
