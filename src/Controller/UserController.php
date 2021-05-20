@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
-use App\Form\PasswordType;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -99,30 +98,5 @@ class UserController extends AbstractController
         }
 
         return $this->redirectToRoute('user_index');
-    }
-      /**
-     * @Route("/compte/password", name="password_edit", methods={"GET","POST"})
-     */
-    public function passwordedit(Request $request, UserPasswordEncoderInterface $encoder): Response
-    {
-        $user = $this->getUser();
-
-        $form = $this->createForm(PasswordType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $hash = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($hash);
-
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->render('congratulation/congratulation.html.twig');
-            // return $this->redirectToRoute('/');
-        }
-
-        return $this->render('security/editPassword.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
     }
 }
