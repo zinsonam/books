@@ -8,6 +8,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+:root{
+    --cubic: cubic-bezier(.51,.09,.19,.98);
+}
+
 
 body{
     min-height: 100vh;
@@ -42,4 +46,32 @@ main.home{
 
 .main-title{
     text-shadow: 1px 1px #000, -1px 1px #000, 1px -1px #000, -1px -1px #000;
+
+    transform: translateY(-20px);
+    opacity: 0;
+
+    animation: appear-title 2s var(--cubic) 1 forwards;
 }
+
+@keyframes appear-title {
+    from{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/*=======================================
+*       Overrides
+=======================================*/
+.is-transparent{
+    background: transparent !important;
+}
+
+
+
