@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Emprunt
+{% endblock %}
+
+{% block body %}
+	<h1>Create new Emprunt</h1>
+
+	{{ include('emprunts/_form.html.twig') }}
+
+
+	<script>
+        const inputDateRendu = document.querySelector('#emprunt_dateRendu');
+        inputDateRendu.value = '-1';
+        inputDateRendu.disabled = 'disabled';
+	</script>
+{% endblock %}

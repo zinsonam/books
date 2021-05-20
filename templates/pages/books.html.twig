@@ -1,34 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des livres{% endblock %}
+{% block title %}AlphaBooks - Liste des livres{% endblock %}
 
 {% block body %}
-    <h1 class="title is-1 has-text-centered m-4">Liste des Livres</h1>
+    <img class="bg-image" src="images/bg.jpg" alt="background">
+
+
+    <h1 class="title is-1 has-text-centered m-6 el-fadeDown" style="position: relative; z-index: 2; color: #fff;">Liste des Livres</h1>
 
     <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
         {% for book in books %}
-            <div class="card" style="width: 20%; min-width: 200px; margin: 2em;">
+            <div class="card card-appear" style="width: 15%; min-width: 200px; margin: 2em;">
                 <div class="card-image">
                     <figure class="image is-3by4">
-                        <img src="https://placeholdpic.com/300x400?size=70" alt="Placeholder image">
+                        <img class="card-image-image" src="images/book.jpg" alt="Placeholder image">
                     </figure>
                 </div>
                 <div class="card-content">
                     <div class="media">
                         <div class="media-content">
-                            <p class="title is-4">{{ book.titre | capitalize }}</p>
+                            <p class="title is-5">{{ book.titre | capitalize }}</p>
                             <p class="subtitle is-6">{{ book.auteur }}</p>
                         </div>
                     </div>
 
                     <div class="content">
-                        <p>Genre: <span class="tag is-link">{{ book.genre }}</span></p>
-                        <p>Type: <span class="tag is-link">{{ book.type }}</span></p>
-                        <p>Quantité en Stock: <strong>{{ book.quantite }}</strong></p>
+                        <p>
+                            {% if book.quantite == 0 %}
+                                <strong><span style="color: red">Rupture de stock</span></strong>
+                            {% else %}
+                                Quantité en Stock: <strong>{{ book.quantite }}</strong>
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="card-footer" style="margin-top: 8px;">
+                        <span class="tag is-primary card-footer-item">{{ book.genre }}</span>
+                        <span class="tag is-link card-footer-item">{{ book.type }}</span>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        const cards = document.querySelectorAll('.card-appear');
+
+        cards.forEach((card, index) => {
+            const rand = getRandomInt(14) + 1;
+            card.querySelector('.card-image-image').src = `images/livres/${rand}.jpg`;
+
+
+            setTimeout(() => {
+                card.classList.add('el-fadeDown');
+            }, 200 + (index * 200));
+        });
+    </script>
 
 {% endblock %}

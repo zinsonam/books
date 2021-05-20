@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voici vos livres empruntés{% endblock %}
+
+{% block body %}
+
+    <h1 style="text-align:center"  class="title m-6">Listes des Emprunts</h1>
+    <div class="table-container">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style=" width: 80%; margin-left: auto; margin-right: auto;" >
+            <thead >
+                <tr>
+                    <th class="has-text-white-ter has-background-primary"> Titre </th>
+                    <th class="has-text-white-ter has-background-primary"> Auteur </th>
+                    <th  colspan="2"  class="has-text-white-ter has-background-primary" > Date Emprunté </th>
+                    <th class="has-text-white-ter has-background-primary"> Date Rendu </th>
+                </tr>
+            </thead>
+            <tbody >
+                {% for emprunt in emprunts %}
+                    <tr >
+
+
+                        <td >
+                            {{ emprunt.book.titre}}
+                        </td>
+                        <td >
+                            {{ emprunt.book.auteur}}
+                        </td>
+                        <td colspan="2"> 
+                            {{ emprunt.date_emprunt | date('d/m/Y à H:i')}}
+                        </td>
+                        <td >
+                            {% if  emprunt.date_rendu != -1 %}
+                                <strong>Rendu</strong>
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="red"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="11">Aucun livre</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

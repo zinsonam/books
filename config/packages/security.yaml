@@ -19,7 +19,7 @@ security:
     firewalls:
         main:
             # anonymous: true
-            # lazy: true
+            lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\AppCustomAuthenticator
             logout:
