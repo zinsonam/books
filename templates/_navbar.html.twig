@@ -1,6 +1,6 @@
-<nav class="navbar is-dark {% if app.request.get('_route') == 'home' %}is-transparent{% endif %}" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark {% if (app.request.get('_route') == 'home') or (app.request.get('_route') == 'intro') or (app.request.get('_route') == 'books_list_public') %}is-transparent{% endif %}" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="{{ path('home') }}">
             <img src="https://seeklogo.com/images/B/bulma-logo-45B5145BF4-seeklogo.com.png" width="20" height="28">&nbsp;<strong>AlphaBooks</strong>
         </a>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -63,9 +63,30 @@
                     </div>
                 {% else %}
                     <div class="buttons">
-                        <a class="button is-light" href="">
-                            <strong>Mon Compte</strong>
-                        </a>
+                        <div class="dropdown is-hoverable">
+                            <div class="dropdown-trigger" style="margin-right: 8px;">
+                                <button class="button is-light" aria-haspopup="true" aria-controls="dropdown-menu">
+                                    <span><strong>Mon Compte</strong></span>
+                                    <span class="icon is-small">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24">
+                                            <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <a href="#" class="dropdown-item">
+                                        Modifier son mot de passe
+                                    </a>
+                                    <hr class="dropdown-divider">
+                                    <a href="" class="dropdown-item">
+                                        Voir ses emprunts
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                         <a class="button is-danger" href="{{ path('app_logout') }}">
                             <strong>Déconnexion</strong>
                         </a>
