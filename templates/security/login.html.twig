@@ -3,6 +3,11 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+    <style>
+        body{
+            background: #fff;
+        }
+    </style>
 <form method="post" style="width: 60%; margin-right: auto; margin-left: auto;">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -14,7 +19,7 @@
         </div>
     {% endif %}
 
-    <h1 class="title is-1 has-text-centered m-6">Please sign in</h1>
+    <h1 class="title is-1 has-text-centered m-6">Connexion à votre compte</h1>
 
     <div class="field">
         <label for="inputEmail" class="label">Email</label>
@@ -23,7 +28,7 @@
         </div>
     </div>
     <div class="field">
-        <label for="inputPassword" class="label">Password</label>
+        <label for="inputPassword" class="label">Mot de Passe</label>
         <div class="control">
             <input type="password" name="password" id="inputPassword" class="input" autocomplete="current-password" required>
         </div>

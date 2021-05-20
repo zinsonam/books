@@ -1,18 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}AlphaBooks - Admin Hub{% endblock %}
 
 {% block body %}
-<a href="#" class="buttonHub">Rendre un livre</a>
-<a href="{{ path('user_new') }}" class="buttonHub2">Créer un abonné</a>
-<a href="#" class="buttonHub3">Créer un emprunt</a>
-</br>
-<a href="#" class="littleHubButton">sans titre</a>
-<a href="#" class="littleHubButton2">sans titre2</a>
-<a href="#" class="littleHubButton">sans titre3</a>
-</br>
-<a href="#" class="littleHubButton">sans titre4</a>
-<a href="#" class="littleHubButton">sans titre5</a>
-<a href="#" class="littleHubButton">sans titre6</a>
+    
+    <style>
+        body{
+            background: #fff;
+        }
+    </style>
+
+    <div class="is-flex is-justify-content-space-evenly is-align-content-center mt-5">
+        <a href="{{ path('emprunts_new') }}" class="buttonHub">
+            Créer un emprunt
+        </a>
+        <a href="{{ path('user_index') }}" class="buttonHub">
+            Rendre un livre
+        </a>
+    </div>
+
+
+    <div class="is-flex is-justify-content-space-evenly is-align-content-center mt-6">
+        <a href="{{ path('user_new') }}" class="littleHubButton">Créer un abonné</a>
+        <a href="{{ path('book_new') }}" class="littleHubButton">Créer un Livre</a>
+        <a href="{{ path('category_create') }}" class="littleHubButton">Créer une catégorie</a>
+    </div>
+    <div class="is-flex is-justify-content-space-evenly is-align-content-center mt-4">
+        <a href="{{ path('user_index') }}" class="littleHubButton">Liste des Abonnés</a>
+        <a href="{{ path('book_index') }}" class="littleHubButton">Liste des Livres</a>
+        <a href="{{ path('category_index') }}" class="littleHubButton">Liste des catégories</a>
+    </div>
+
 
 {% endblock %}

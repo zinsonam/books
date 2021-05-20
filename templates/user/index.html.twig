@@ -1,23 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index
-{% endblock %}
+{% block title %}AlphaBooks - Liste des Abonnés{% endblock %}
 
 {% block body %}
-	<h1>User index</h1>
-	<table>
+	<style>
+		footer{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+
+			z-index: 2;
+			padding: 3rem 1.5rem 4rem !important;
+		}
+	</style>
+
+	<h1 class="title is-1 has-text-centered m-6">Liste des Abonnés</h1>
+
+	<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style=" width: 80%; margin-left: auto; margin-right: auto;" >
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Nom</th>
-				<th>Prenom</th>
-				<th>Email</th>
-				<th>Adresse</th>
-				<th>Telephone</th>
-				<th>Score</th>
-				<th>DateCreation</th>
-				<th>Liste des Emprunts</th>
-				<th>actions</th>
+				<th class="has-text-white-ter has-background-primary">Id</th>
+				<th class="has-text-white-ter has-background-primary">Nom</th>
+				<th class="has-text-white-ter has-background-primary">Prenom</th>
+				<th class="has-text-white-ter has-background-primary">Email</th>
+				<th class="has-text-white-ter has-background-primary">Adresse</th>
+				<th class="has-text-white-ter has-background-primary">Telephone</th>
+				<th class="has-text-white-ter has-background-primary">Score</th>
+				<th class="has-text-white-ter has-background-primary">DateCreation</th>
+				<th class="has-text-white-ter has-background-primary">Liste des Emprunts</th>
+				<th class="has-text-white-ter has-background-primary">actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,7 +44,7 @@
 					<td>{{ user.score }}</td>
 					<td>{{ user.dateCreation ? user.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
 					<td>
-						<a href="{{ path('emprunts_listuser', {'id': user.id}) }}" class="tag is-link">Emprunts</a>
+						<a href="{{ path('emprunts_listuser', {'id': user.id}) }}" class="tag is-primary">Emprunts</a>
 					</td>
 					<td>
 						<a href="{{ path('user_show', {'id': user.id}) }}">show</a>
@@ -47,5 +59,7 @@
 		</tbody>
 	</table>
 
-	<a href="{{ path('user_new') }}">Create new</a>
+	<div class="is-flex is-justify-content-center">
+		<a href="{{ path('user_new') }}" class="button is-primary" style="">Create new</a>
+	</div>
 {% endblock %}
